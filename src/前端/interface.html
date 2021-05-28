@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/interface.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div id='left'>
+        <div id='left_top'>
+            <img src="" alt="">
+        </div>
+        <div id='left_bottom'>
+            <ul id='bar'>
+                <li class='jiyibi'>记一笔</li>
+                <li class='xiaofeiyilan'>消费一览</li>
+                <li class='xiaofeifenlei'>消费分类</li>
+                <li class='yuexiaofeibaobiao'>月消费报表</li>
+            </ul>
+        </div>
+    </div>
+    <div id='right'>
+        <div id='right_top'>
+            <div id='title'>
+                记账本系统
+            </div>
+        </div>
+        <div id='right_bottom'>
+            <div id='jiyibi'>
+                <form action="">
+                    金额：<input type="text" name='money'><br>
+                    日期：<input type="date" name="date" id=""><br>
+                    类型：<select name="type" id="">
+                            <option value="1">吃饭</option>
+                            <option value="2">买衣服</option>
+                            <option value="3">水电气</option>
+                            <option value="4">医药费</option>
+                            <option value="5">娱乐</option>
+                            <option value="6">其他</option>
+                        </select><br>
+                    <input type="submit" value="提交" id='submit'>
+                </form>
+            </div>
+            <div id='xiaofeiyilan'>
+                <!-- 展示 -->
+            </div>
+            <div id='xiaofeifenlei'>
+                <!-- 用列表展示 -->
+            </div>
+            <div id='yuexiaofeibaobiao'>
+                <!-- 用echarts -->
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.jiyibi').hover(function(){
+                $(this).toggleClass("hover")
+            })
+            $('.xiaofeiyilan').hover(function(){
+                $(this).toggleClass("hover")
+            })
+            $('.xiaofeifenlei').hover(function(){
+                $(this).toggleClass("hover")
+            })
+            $('.yuexiaofeibaobiao').hover(function(){
+                $(this).toggleClass("hover")
+            })
+        })
+    </script>
+</body>
+</html>
