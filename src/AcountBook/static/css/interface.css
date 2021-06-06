@@ -1,0 +1,170 @@
+body,html{
+    margin: 0px;
+    padding: 0px;
+}
+
+body,html{
+    width: 100%;
+    height: 100%;
+}
+
+
+#left{
+    height: 100%;
+    width: 15%;
+    float: left;
+
+}
+
+#left_top{
+    height: 12%;
+    background-color: #0099CC
+}
+
+
+#left_bottom{
+    height: 88%;
+    background-color: #0099CC;
+}
+
+
+#bar{
+    width: 100%;
+    list-style: none;
+    margin: 0px;
+    padding-left: 0px;
+    color: white;
+}
+
+#bar li{
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-indent: 2em;
+}
+
+
+
+#right{
+    height: 100%;
+    width: 85%;
+    float: right;
+}
+
+
+#right_top{
+    height: 12%;
+    background-color: #CCCCCC;
+    font-size: 26px;
+    text-align: left;
+    text-indent: 1em;
+    letter-spacing:10px;
+}
+
+#right_top::before{
+    display: table;
+    content: '';
+}
+
+#right_top::after{
+    display: table;
+    content: '';
+    clear: both;
+}
+
+#right_top #title{
+    margin-top: 20px;
+}
+
+#right_bottom{
+    height: 88%;
+    background-color: white;
+}
+
+#right_bottom::before{
+    display: table;
+    content: '';
+}
+
+#right_bottom::after{
+    display: table;
+    content: '';
+    clear: both;
+}
+
+
+#jiyibi{
+    width: 300px;
+    margin: 200px auto;
+}
+
+#jiyibi input,select{
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#jiyibi #money,#date{
+    width: 150px;
+}
+
+#xiaofeiyilan #show{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.hover{
+    background-color: blue;
+}
+
+
+.click{
+    background-color: rgb(32,73,105);
+}
+
+.hideContent{
+    display: none;
+}
+
+#xiaofeiylan #show{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+#xiaofeiyilan table{
+    border-collapse: collapse;
+    text-align: center;
+    margin: 200px auto;
+    clear: both;
+}
+#xiaofeiyilan td,th{
+    border: 1px solid black;
+    width: 150px;
+}
+
+
+
+
+#xiaofeifenlei form{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+#xiaofeifenlei table{
+    border-collapse: collapse;
+    text-align: center;
+    margin: 200px auto;
+    clear: both;
+}
+#xiaofeifenlei td,th{
+    border: 1px solid black;
+    width: 150px;
+}
+
+
+
