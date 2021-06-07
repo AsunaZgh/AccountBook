@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import time
 
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost/accountbook'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
