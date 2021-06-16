@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>职位管理</title>
+    <link rel="stylesheet" href="../../static/assets/css/layui.css">
+    <link rel="stylesheet" href="../../static/assets/css/view.css"/>
+    <link rel="stylesheet" href="../../static/assets/css/admin.css"/>
+    <link rel="stylesheet" href="../../static/assets/css/style.css"/>
+    <style type="text/css">
+    	.layui-form-item{ margin-bottom: 0;}
+    </style>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+    	<!--面包屑导航-->
+    	<div class="mianb">
+    		<div class="mblf layui-col-xs6 layui-col-md6">
+    			 <i class="layui-icon">&#xe656;</i>
+    			 <p>消费查看功能 > <span>消费查看</span></p>
+    		</div>
+    	</div>
+    	<!--面包屑导航-->
+        <div class="layui-row">
+            <div class="layui-card">
+            	<div class="sortbox layui-form">
+            		   <div class="layui-form-item">
+						    <label class="layui-form-label">类型选择</label>
+						    <div class="layui-input-inline">
+						      <select  name="choice" lay-filter="aihao" id="choice">
+									<option value="10">全部</option>
+						       		<option value="0">餐饮</option>
+							        <option value="1">购物</option>
+							        <option value="2">住房</option>
+							        <option value="3">交通</option>
+							        <option value="4">娱乐</option>
+							        <option value="5">文教</option>
+							        <option value="6">汽车</option>
+							        <option value="7">通讯</option>
+							        <option value="8">育儿</option>
+									<option value="9">其他</option>
+						      </select>
+						    </div>
+						  </div>
+            	</div>
+            	<div class="table-responsive">
+			 		  <table class="layui-table" lay-skin="line" lay-size="lg" id="table">						  
+						  <thead>
+						    <tr id="tableHead">
+						      <th>消费时间</th>	
+						      <th>消费类型</th>
+						      <th>消费金额</th>
+						      <th>操作</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                          {% for i in index %}
+                                  <tr>
+                                  <td>{{ accounts[i].date }}</td>
+                                  {% if accounts[i].typeId==0 %}
+                                        <td>餐饮</td>
+                                  {% endif %}
+                                  {% if accounts[i].typeId==1 %}
+                                        <td>购物</td>
+                                  {% endif %}
+                                  {% if accounts[i].typeId==2 %}
+                                        <td>住房</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==3 %}
+                                        <td>交通</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==4 %}
+                                        <td>育儿</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==5 %}
+                                        <td>文教</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==6 %}
+                                        <td>汽车</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==7 %}
+                                        <td>通讯</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==8 %}
+                                        <td>育儿</td>
+                                  {% endif %}
+                              {% if accounts[i].typeId==9 %}
+                                        <td>其他</td>
+                                  {% endif %}
+                                  <td>{{ accounts[i].money }}</td>
+                                  <td>
+                                    <div class="layui-table-cell laytable-cell-1-0-10">
+                                            <a class="layui-btn layui-btn-danger layui-btn-xs delete" href="/delete/{{ accounts[i].id }}/{{ username }}">删除</a>
+                                      </div>
+                                  </td>
+                              </tr>
+                          {% endfor %}
+						  </tbody>
+					</table>
+			 	</div>
+                   
+           		<!--分页-->
+{#           		<div id="page"></div>#}
+                <div id="username" style="display: none">{{ username }}</div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../../static/assets/jquery.min.js"></script>
+    <script src="../../static/assets/layui.all.js"></script>
+    <script>
+    	var element = layui.element;
+    	layui.use(['laypage', 'layer'], function(){
+		  var laypage = layui.laypage
+		  ,layer = layui.layer;
+		  //页码完整功能
+		  laypage.render({
+		    elem: 'page'
+		    ,count: 100
+		    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+		    ,jump: function(obj){
+		      console.log(obj)
+		    }
+		  });	 
+		});
+		
+		//弹框		
+		$('#fabu').on('click', function(){			
+		  layui.use('layer', function(){
+          var layer = layui.layer;
+          layer.open({
+                type: 2,
+                title: '发布任务',
+                fix: false,
+                shadeClose: true,
+                shade: 0.8,
+                area: ['660px', '420px'],
+                content: '02任务发布-发布任务.html',
+                end: function () {
+                   location.reload();
+                }
+            });
+        });
+      })
+		
+		//判断弹框
+
+        $("#choice").change(function (){
+            console.log(111)
+        })
+
+
+		$(".delete").click(function(){
+			layer.confirm('确定要删除该职位信息？', {
+			  btn: ['是','否'] //按钮
+			}, function(){
+			  layer.msg('已删除', {icon: 1});
+			}, function(){
+			  layer.msg('已取消',  {icon: 2});
+			});
+		})			
+		
+		 layui.use('form', function(){
+		  var form = layui.form;
+		  form.on('select(aihao)',function(){
+		      var choice=document.getElementById("choice").value;
+		      $('tr').css('display','none')
+              $('#tableHead').css('display','table-row')
+            if(choice==10){
+                $('tr').css('display','table-row')
+            }else if(choice==0){
+                $('tr:contains("餐饮")').css("display","table-row");
+                console.log(11)
+            }else if (choice==1){
+                $('tr:contains("购物")').css("display","table-row");
+            }else if (choice==2){
+                $('tr:contains("住房")').css("display","table-row");
+            }else if (choice==3){
+                $('tr:contains("交通")').css("display","table-row");
+            }else if (choice==4){
+                $('tr:contains("育儿")').css("display","table-row");
+            }else if (choice==5){
+                $('tr:contains("文教")').css("display","table-row");
+            }else if (choice==6){
+                $('tr:contains("汽车")').css("display","table-row");
+            }else if (choice==7){
+                $('tr:contains("通讯")').css("display","table-row");
+            }else if (choice==8) {
+                $('tr:contains("育儿")').css("display","table-row");
+            }else {
+                $('tr:contains("其他")').css("display","table-row");
+            }
+          })
+		  form.render();
+		});
+	</script>
+</body>
+</html>

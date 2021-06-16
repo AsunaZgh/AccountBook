@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/interface.css">
+    <script src="../static/js/jquery.js"></script>
+</head>
+<body>
+    <div id='left'>
+        <div id='left_top'>
+            <img src="" alt="">
+        </div>
+        <div id='left_bottom'>
+            <ul id='bar'>
+                <li class='jiyibi click'>记一笔</li>
+                <li class='xiaofeiyilan'>消费一览</li>
+                <li class='xiaofeifenlei'>消费分类</li>
+                <li class='yuexiaofeibaobiao'>月消费报表</li>
+            </ul>
+        </div>
+    </div>
+    <div id='right'>
+        <div id='right_top'>
+            <div id='title'>
+                记账本系统
+            </div>
+        </div>
+        <div id='right_bottom'>
+            <div id='jiyibi'>
+                <form action="">
+                    金额：<input type="text" name='money' id='money'><br>
+                    日期：<input type="date" name="date" id="date"><br>
+                    类型：<select name="type" id="type">
+                            <option value="1">吃饭</option>
+                            <option value="2">买衣服</option>
+                            <option value="3">水电气</option>
+                            <option value="4">医药费</option>
+                            <option value="5">娱乐</option>
+                            <option value="6">其他</option>
+                        </select><br>
+                    <input type="submit" value="提交" id='submit'>
+                </form>
+            </div>
+            <div id='xiaofeiyilan' class="hideContent">
+                <!-- 展示 -->
+                <div id='show'>
+                    <p>本月消费金额:</p>
+                    <p>本日消费金额:</p>
+                </div>
+                <table>
+                    <tr>
+                        <th>序号</th>
+                        <th>日期</th>
+                        <th>消费类型</th>
+                        <th>金额</th>
+                        <th>功能</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+            <div id='xiaofeifenlei' class="hideContent">
+                <form action="">
+                    类型:&nbsp; <select name="" id="">
+                        <option value="1">吃饭</option>
+                            <option value="2">买衣服</option>
+                            <option value="3">水电气</option>
+                            <option value="4">医药费</option>
+                            <option value="5">娱乐</option>
+                            <option value="6">其他</option>
+                    </select>
+                </form>
+                <table>
+                    <tr>
+                        <th>序号</th>
+                        <th>日期</th>
+                        <th>消费类型</th>
+                        <th>金额</th>
+                        <th>功能</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+            <div id='yuexiaofeibaobiao' class="hideContent">
+                <!-- 用echarts -->
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.jiyibi').hover(function(){
+                $(this).toggleClass("hover")
+            })
+            $('.xiaofeiyilan').hover(function(){
+                $(this).toggleClass("hover")
+            })
+            $('.xiaofeifenlei').hover(function(){
+                $(this).toggleClass("hover")
+            })
+            $('.yuexiaofeibaobiao').hover(function(){
+                $(this).toggleClass("hover")
+            })
+
+
+            $('.jiyibi').click(function(){
+                $('.jiyibi').addClass("click")
+                $('.xiaofeiyilan').removeClass("click")
+                $('.xiaofeifenlei').removeClass("click")
+                $('.yuexiaofeibaobiao').removeClass("click")
+                $('#jiyibi').removeClass("hideContent")
+                $('#xiaofeiyilan').addClass("hideContent")
+                $('#xiaofeifenlei').addClass("hideContent")
+                $('#yuexiaofeibaobiao').addClass("hideContent")
+            })
+            $('.xiaofeiyilan').click(function(){
+                $('.jiyibi').removeClass("click")
+                $('.xiaofeiyilan').addClass("click")
+                $('.xiaofeifenlei').removeClass("click")
+                $('.yuexiaofeibaobiao').removeClass("click")
+                $('#jiyibi').addClass("hideContent")
+                $('#xiaofeiyilan').removeClass("hideContent")
+                $('#xiaofeifenlei').addClass("hideContent")
+                $('#yuexiaofeibaobiao').addClass("hideContent")
+            })
+            $('.xiaofeifenlei').click(function(){
+                $('.jiyibi').removeClass("click")
+                $('.xiaofeiyilan').removeClass("click")
+                $('.xiaofeifenlei').addClass("click")
+                $('.yuexiaofeibaobiao').removeClass("click")
+                $('#jiyibi').addClass("hideContent")
+                $('#xiaofeiyilan').addClass("hideContent")
+                $('#xiaofeifenlei').removeClass("hideContent")
+                $('#yuexiaofeibaobiao').addClass("hideContent")
+            })
+            $('.yuexiaofeibaobiao').click(function(){
+                $('.jiyibi').removeClass("click")
+                $('.xiaofeiyilan').removeClass("click")
+                $('.xiaofeifenlei').removeClass("click")
+                $('.yuexiaofeibaobiao').addClass("click")
+                $('#jiyibi').addClass("hideContent")
+                $('#xiaofeiyilan').addClass("hideContent")
+                $('#xiaofeifenlei').addClass("hideContent")
+                $('#yuexiaofeibaobiao').removeClass("hideContent")
+            })
+        })
+    </script>
+</body>
+</html>
