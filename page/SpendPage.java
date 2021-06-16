@@ -6,6 +6,7 @@ package gui.page;
  * @author 于修彦
  *
  */
+
 public class SpendPage {
 	public String monthSpend; // 本月消费
 	public String todaySpend; // 今日消费
