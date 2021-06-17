@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="../static/assets/css/register.css">
+</head>
+<body>
+    <div class="dowebok" id="dowebok">
+        <div class="form-container sign-up-container">
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="" id='form' method="post">
+                <h1>注册</h1>
+                <input type="email" placeholder="用户名" id='username' name="username">
+                <input type="password" placeholder="密码" id='password' name="password">
+                <div>{{ label }}</div>
+                <button id='login' onclick="submit()">注册</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Join us</h1>
+                    <p>加入我们，和我们一起开始旅程吧</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/assets/register.js"></script>
+</body>
+
+</html>
